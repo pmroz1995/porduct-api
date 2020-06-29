@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "d71e328a-6168-44f4-bffa-14623c5ea466",
+		"name": "sellionsApiTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/getProduct/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"getProduct",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategoryById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/getProductsByCategoryId?index=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"getProductsByCategoryId"
+					],
+					"query": [
+						{
+							"key": "index",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostProduct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\t\r\n        \"name\": \"telefon\",\r\n        \"brand\": \"iyui\",\r\n        \"model\": null,\r\n        \"colour\": \"czarny\",\r\n        \"prize\": 750,\r\n        \"weight\": null,\r\n        \"productionYear\": null,\r\n        \"status\": \"SPRAWNY\",\r\n        \"parameters\": [],\r\n        \"comments\": [],\r\n        \"category\": {\r\n            \"category_id\": 3,\r\n            \"name\": \"telefon\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/postProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"postProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"product_id\": 1,\r\n        \"name\": \"Pralka\",\r\n        \"brand\": \"philips\",\r\n        \"model\": \"frania\",\r\n        \"colour\": \"czarny\",\r\n        \"prize\": 1233,\r\n        \"weight\": 80,\r\n        \"productionYear\": \"2020-02-24\",\r\n        \"status\": \"ACTIVE\",\r\n        \"parameters\": [],\r\n        \"comments\": [],\r\n        \"category\": {\r\n            \"category_id\": 1,\r\n            \"name\": \"Pralka\",\r\n            \"products\": []\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellions/categoryController/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellions",
+						"categoryController",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductsByCategoryName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/getProductsByCategoryName/telefon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"getProductsByCategoryName",
+						"telefon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddingCategory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"category_name\": \"Pralka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellions/categoryController/postCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellions",
+						"categoryController",
+						"postCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddParameter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t\t\t{\r\n                \"product_name\": \"telefon\",\r\n                \"name\": \"reslution\",\r\n                \"value\": \"7 cali\"\r\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellionsParameter/postParameter/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsParameter",
+						"postParameter",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n                \"product_name\": \"telefon\",\r\n                \"name\": \"reslution\",\r\n                \"message\": \"chuj, dupa, cycki\"\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellionsComment/addComment/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsComment",
+						"addComment",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeProductStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellionsApi/changeStatus/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellionsApi",
+						"changeStatus",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
